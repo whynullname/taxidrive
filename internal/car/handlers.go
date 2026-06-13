@@ -5,6 +5,8 @@ import (
 	"io"
 	"net/http"
 	"strings"
+
+	"github.com/whynullname/taxidrive/internal/domain"
 )
 
 type Handlers interface {
@@ -37,8 +39,7 @@ func (h *handlers) AddCar(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	car := Car{
-		Id:          request.Id,
+	car := domain.Car{
 		Brand:       request.Brand,
 		NumberPlate: request.Brand,
 		Status:      "free",

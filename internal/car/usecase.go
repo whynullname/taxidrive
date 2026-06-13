@@ -1,16 +1,18 @@
 package car
 
+import "github.com/whynullname/taxidrive/internal/domain"
+
 type UseCase interface {
-	AddCar(car *Car) error
-	GetAllCars() ([]Car, error)
+	AddCar(car *domain.Car) error
+	GetAllCars() ([]domain.Car, error)
 }
 
 type useCase struct{}
 
-func (u *useCase) AddCar(car *Car) error {
+func (u *useCase) AddCar(car *domain.Car) error {
 	return nil
 }
 
-func (u *useCase) GetAllCars() ([]Car, error) {
+func (u *useCase) GetAllCars() ([]domain.Car, error) {
 	return nil, nil
 }
