@@ -42,9 +42,9 @@ func (h *handlers) AddCar(w http.ResponseWriter, r *http.Request) {
 	car := domain.Car{
 		Brand:       request.Brand,
 		NumberPlate: request.Brand,
-		Status:      "free",
+		Status:      domain.Free,
 	}
-	err = h.carUseCase.AddCar(&car)
+	err = h.carUseCase.AddCar(r.Context(), &car)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
@@ -54,7 +54,7 @@ func (h *handlers) AddCar(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *handlers) GetAllCars(w http.ResponseWriter, r *http.Request) {
-	cars, err := h.carUseCase.GetAllCars()
+	cars, err := h.carUseCase.GetAllCars(r.Context())
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return

@@ -7,6 +7,6 @@ import (
 )
 
 type Repository interface {
-	AddCar(ctx context.Context, car *domain.Car) error
+	Create(ctx context.Context, car *domain.Car) error
 	GetAllCars(ctx context.Context) ([]domain.Car, error)
 }
