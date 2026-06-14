@@ -16,8 +16,12 @@ func NewHandlersProvider(carHandlers car.Handlers) *HandlersProvider {
 }
 
 func (h *HandlersProvider) ConnectHandlers(router chi.Router) {
+	//-------------CARS--------------------
 	router.Route("/cars", func(r chi.Router) {
-		r.Post("/", h.carHandlers.AddCar)
+		r.Post("/", h.carHandlers.CreateCar)
 		r.Get("/", h.carHandlers.GetAllCars)
+		r.Get("/{id}", h.carHandlers.GetCar)
+		r.Patch("/{id}", h.carHandlers.UpdateCar)
+		r.Delete("/{id}", h.carHandlers.DeleteCar)
 	})
 }

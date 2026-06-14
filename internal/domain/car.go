@@ -12,8 +12,8 @@ const (
 )
 
 type Car struct {
-	ID          uuid.UUID `json:"id"`
-	Brand       string    `json:"brand"`
-	NumberPlate string    `json:"number_plate"`
-	Status      CarStatus `json:"status"`
+	ID          uuid.UUID
+	Brand       string
+	NumberPlate string
+	Status      CarStatus
 }
